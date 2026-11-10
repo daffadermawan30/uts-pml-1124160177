@@ -42,6 +42,45 @@ class ProfilPage extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               const SizedBox(height: 24),
+
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Kontak",
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
+              ),
+              const SizedBox(height: 16),
+              Card(
+                child: Column(
+                  children: [
+                    InfoTile(
+                      icon: Icons.email,
+                      label: "Email",
+                      value: "daffa181002@gmail.com",
+                    ),
+                    const SizedBox(height: 12),
+                    InfoTile(
+                      icon: Icons.phone,
+                      label: "No. HP",
+                      value: "08123456789",
+                    ),
+                    const SizedBox(height: 12),
+                    InfoTile(
+                      icon: Icons.school,
+                      label: "Perguruan Tinggi",
+                      value: "Global Institute",
+                    ),
+                    const SizedBox(height: 12),
+                    InfoTile(
+                      icon: Icons.code,
+                      label: "Github",
+                      value: "github.com/daffadermawan30",
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 24),
             ],
           ),
         ),
