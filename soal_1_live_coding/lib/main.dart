@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:soal_1_live_coding/profil_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,11 +13,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Profile Daffa Dermawan",
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(colorSchemeSeed: Colors.deepOrange),
-      darkTheme: ThemeData(brightness: Brightness.dark, useMaterial3: ),
+      theme: ThemeData(colorSchemeSeed: Colors.deepOrange, useMaterial3: true),
+      darkTheme: ThemeData(brightness: Brightness.dark, useMaterial3: true),
       themeMode: ThemeMode.system,
-      home: ProfilePage(),
-      // belum di buat widget STL profilPage()
+      home: ProfilPage(),
     );
   }
 }
