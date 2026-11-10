@@ -94,19 +94,19 @@ class ProfilPage extends StatelessWidget {
                 child: Column(
                   children: [
                     InfoTile(
-                      icon: Icons.email,
+                      icon: Icons.web,
                       label: "Bahasa Pemrograman",
                       value: "PHP, JS, Dart",
                     ),
                     const SizedBox(height: 12),
                     InfoTile(
-                      icon: Icons.phone,
+                      icon: Icons.book,
                       label: "Buku Favorit",
                       value: "Madilog, Filosofi Teras, Dunia Sophie",
                     ),
                     const SizedBox(height: 12),
                     InfoTile(
-                      icon: Icons.school,
+                      icon: Icons.music_note,
                       label: "Lagu Favorit",
                       value: "Montagem Perigosa, Montagem Alquimia, Montagem Pegadora",
                     ),
@@ -117,6 +117,16 @@ class ProfilPage extends StatelessWidget {
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text("Terima kasih telah melihat profil saya"),
+            ),
+          );
+        },
+        child: const Icon(Icons.favorite),
       ),
     );
   }
