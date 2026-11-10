@@ -81,6 +81,39 @@ class ProfilPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 24),
+
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Keahlian dan Hobi",
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
+              ),
+              const SizedBox(height: 16),
+              Card(
+                child: Column(
+                  children: [
+                    InfoTile(
+                      icon: Icons.email,
+                      label: "Bahasa Pemrograman",
+                      value: "PHP, JS, Dart",
+                    ),
+                    const SizedBox(height: 12),
+                    InfoTile(
+                      icon: Icons.phone,
+                      label: "Buku Favorit",
+                      value: "Madilog, Filosofi Teras, Dunia Sophie",
+                    ),
+                    const SizedBox(height: 12),
+                    InfoTile(
+                      icon: Icons.school,
+                      label: "Lagu Favorit",
+                      value: "Montagem Perigosa, Montagem Alquimia, Montagem Pegadora",
+                    ),
+                    const SizedBox(height: 12),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
