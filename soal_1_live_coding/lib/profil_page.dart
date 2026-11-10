@@ -14,6 +14,12 @@ class ProfilPage extends StatelessWidget {
         title: const Text("Profil Mahasiswa"),
         centerTitle: true,
       ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: EdgeInsets.all(20),
+          child: Column(),
+        ),
+      ),
     );
   }
 }
