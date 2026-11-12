@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'screens/login_page.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -9,9 +11,25 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(body: Text("profil page")),
+      title: 'Profil Mahasiswa',
+
+      theme: ThemeData(
+        colorSchemeSeed: Colors.deepOrange,
+        brightness: Brightness.light,
+        useMaterial3: true,
+      ),
+
+      darkTheme: ThemeData(
+        colorSchemeSeed: Colors.deepOrange,
+        brightness: Brightness.dark,
+        useMaterial3: true,
+      ),
+
+      themeMode: ThemeMode.system,
+
+      home: const LoginPage(),
     );
   }
 }
