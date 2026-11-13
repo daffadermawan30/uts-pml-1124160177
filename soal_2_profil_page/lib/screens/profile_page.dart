@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../models/profile.dart';
 import '../widgets/info_tile.dart';
+import '../screens/edit_profile_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -12,20 +13,45 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   Profile mahasiswa = const Profile(
-    name: 'Daffa',
-    nim: '123456789',
-    prodi: 'Software Engineering',
-    kelas: 'TI-5A',
-    bio: 'Saya tertarik dengan pengembangan aplikasi dan teknologi.',
+    name: 'Daffa Dermawan',
+    nim: '1124160177',
+    prodi: 'Teknik Informatika',
+    kelas: 'TI24SE2',
+    bio: 'Saya suka teknologi.',
     email: 'daffa@gmail.com',
     phone: '081234567890',
-    github: 'github.com/daffa',
+    github: 'github.com/daffadermawan30',
   );
+
+  Future<void> _editProfile() async {
+    final updatedProfile = await Navigator.push<Profile>(
+      context,
+      MaterialPageRoute(
+        builder: (context) => EditProfilePage(profile: mahasiswa),
+      ),
+    );
+
+    if (updatedProfile != null) {
+      setState(() {
+        mahasiswa = updatedProfile;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Profil Mahasiswa'), centerTitle: true),
+      appBar: AppBar(
+        title: const Text('Profil Mahasiswa'),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: _editProfile,
+            icon: const Icon(Icons.edit),
+            tooltip: 'Edit Profil',
+          ),
+        ],
+      ),
 
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
