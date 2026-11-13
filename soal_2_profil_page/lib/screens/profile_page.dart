@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:soal_2_profil_page/models/profile.dart';
+
+import '../models/profile.dart';
+import '../widgets/info_tile.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -10,28 +12,34 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   Profile mahasiswa = const Profile(
-    name: 'Daffa Dermawan',
-    nim: '1124160177',
-    prodi: 'Teknik Informatika',
-    kelas: 'TI-24-SE-2',
-    bio: 'Saya suka teknologi.',
+    name: 'Daffa',
+    nim: '123456789',
+    prodi: 'Software Engineering',
+    kelas: 'TI-5A',
+    bio: 'Saya tertarik dengan pengembangan aplikasi dan teknologi.',
     email: 'daffa@gmail.com',
     phone: '081234567890',
-    github: 'github.com/daffadermawan30',
+    github: 'github.com/daffa',
   );
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Profil Mahasiswa'), centerTitle: true),
+
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CircleAvatar(radius: 55, child: Icon(Icons.person, size: 60)),
+            // Foto profil
+            const CircleAvatar(
+              radius: 60,
+              backgroundImage: AssetImage('assets/images/profile.jpg'),
+            ),
 
             const SizedBox(height: 16),
 
+            // Nama dan NIM
             Text(
               mahasiswa.name,
               style: Theme.of(context).textTheme.headlineSmall,
@@ -39,23 +47,24 @@ class _ProfilePageState extends State<ProfilePage> {
 
             const SizedBox(height: 5),
 
-            Text(mahasiswa.nim, style: Theme.of(context).textTheme.bodyMedium),
+            Text(mahasiswa.nim),
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 24),
 
+            // Informasi akademik
             Card(
               child: Column(
                 children: [
-                  ListTile(
-                    leading: const Icon(Icons.school),
-                    title: const Text('Program Studi'),
-                    subtitle: Text(mahasiswa.prodi),
+                  InfoTile(
+                    icon: Icons.school,
+                    title: 'Program Studi',
+                    subtitle: mahasiswa.prodi,
                   ),
                   const Divider(height: 1),
-                  ListTile(
-                    leading: const Icon(Icons.class_),
-                    title: const Text('Kelas'),
-                    subtitle: Text(mahasiswa.kelas),
+                  InfoTile(
+                    icon: Icons.class_,
+                    title: 'Kelas',
+                    subtitle: mahasiswa.kelas,
                   ),
                 ],
               ),
@@ -63,35 +72,37 @@ class _ProfilePageState extends State<ProfilePage> {
 
             const SizedBox(height: 16),
 
+            // Bio
             Card(
-              child: ListTile(
-                leading: const Icon(Icons.person_outline),
-                title: const Text('Tentang Saya'),
-                subtitle: Text(mahasiswa.bio),
+              child: InfoTile(
+                icon: Icons.person_outline,
+                title: 'Tentang Saya',
+                subtitle: mahasiswa.bio,
               ),
             ),
 
             const SizedBox(height: 16),
 
+            // Kontak
             Card(
               child: Column(
                 children: [
-                  ListTile(
-                    leading: const Icon(Icons.email),
-                    title: const Text('Email'),
-                    subtitle: Text(mahasiswa.email),
+                  InfoTile(
+                    icon: Icons.email,
+                    title: 'Email',
+                    subtitle: mahasiswa.email,
                   ),
                   const Divider(height: 1),
-                  ListTile(
-                    leading: const Icon(Icons.phone),
-                    title: const Text('Nomor Telepon'),
-                    subtitle: Text(mahasiswa.phone),
+                  InfoTile(
+                    icon: Icons.phone,
+                    title: 'Nomor Telepon',
+                    subtitle: mahasiswa.phone,
                   ),
                   const Divider(height: 1),
-                  ListTile(
-                    leading: const Icon(Icons.code),
-                    title: const Text('GitHub'),
-                    subtitle: Text(mahasiswa.github),
+                  InfoTile(
+                    icon: Icons.code,
+                    title: 'GitHub',
+                    subtitle: mahasiswa.github,
                   ),
                 ],
               ),
