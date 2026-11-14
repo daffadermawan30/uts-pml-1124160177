@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../theme_controller.dart';
 import '../models/profile.dart';
 
 class AppDrawer extends StatelessWidget {
@@ -51,6 +52,29 @@ class AppDrawer extends StatelessWidget {
             selectedTileColor: Theme.of(context).colorScheme.secondaryContainer,
             selectedColor: Theme.of(context).colorScheme.onSecondaryContainer,
             onTap: onAboutTap,
+          ),
+
+          ValueListenableBuilder<ThemeMode>(
+            valueListenable: themeModeNotifier,
+            builder: (context, currentTheme, child) {
+              final isDarkMode = currentTheme == ThemeMode.dark;
+
+              return SwitchListTile(
+                secondary: Icon(
+                  isDarkMode ? Icons.dark_mode : Icons.light_mode,
+                ),
+                title: const Text('Dark Mode'),
+                subtitle: Text(
+                  isDarkMode ? 'Mode gelap aktif' : 'Mode terang aktif',
+                ),
+                value: isDarkMode,
+                onChanged: (value) {
+                  themeModeNotifier.value = value
+                      ? ThemeMode.dark
+                      : ThemeMode.light;
+                },
+              );
+            },
           ),
 
           const Divider(),
