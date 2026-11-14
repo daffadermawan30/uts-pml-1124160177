@@ -4,6 +4,10 @@ import '../models/profile.dart';
 import '../widgets/info_tile.dart';
 import '../screens/edit_profile_page.dart';
 
+import '../widgets/app_drawer.dart';
+import '../screens/about_page.dart';
+import '../screens/login_page.dart';
+
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
 
@@ -53,11 +57,38 @@ class _ProfilePageState extends State<ProfilePage> {
         ],
       ),
 
+      drawer: AppDrawer(
+        profile: mahasiswa,
+        selectedPage: 'profile',
+
+        onProfileTap: () {
+          Navigator.pop(context);
+        },
+
+        onAboutTap: () {
+          Navigator.pop(context);
+
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => AboutPage(profile: mahasiswa),
+            ),
+          );
+        },
+
+        onLogoutTap: () {
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => const LoginPage()),
+            (route) => false,
+          );
+        },
+      ),
+
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            // Foto profil
             const CircleAvatar(
               radius: 60,
               backgroundImage: AssetImage('assets/images/profile.jpg'),
@@ -65,7 +96,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
             const SizedBox(height: 16),
 
-            // Nama dan NIM
             Text(
               mahasiswa.name,
               style: Theme.of(context).textTheme.headlineSmall,
@@ -77,7 +107,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
             const SizedBox(height: 24),
 
-            // Informasi akademik
             Card(
               child: Column(
                 children: [
@@ -98,7 +127,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
             const SizedBox(height: 16),
 
-            // Bio
             Card(
               child: InfoTile(
                 icon: Icons.person_outline,
@@ -109,7 +137,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
             const SizedBox(height: 16),
 
-            // Kontak
             Card(
               child: Column(
                 children: [

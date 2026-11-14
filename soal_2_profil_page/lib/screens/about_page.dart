@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../models/profile.dart';
+import '../widgets/app_drawer.dart';
+import 'login_page.dart';
+
 class AboutPage extends StatelessWidget {
-  const AboutPage({super.key});
+  final Profile profile;
+  const AboutPage({super.key, required this.profile});
 
   final List<Map<String, dynamic>> skills = const [
     {
@@ -43,6 +48,29 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('About Me'), centerTitle: true),
+
+      drawer: AppDrawer(
+        profile: profile,
+        selectedPage: 'about',
+
+        onProfileTap: () {
+          Navigator.pop(context);
+
+          Navigator.pop(context);
+        },
+
+        onAboutTap: () {
+          Navigator.pop(context);
+        },
+
+        onLogoutTap: () {
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => const LoginPage()),
+            (route) => false,
+          );
+        },
+      ),
 
       body: ListView(
         padding: const EdgeInsets.all(20),
