@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:soal_2_profil_page/screens/profile_page.dart';
-
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -34,10 +32,7 @@ class _LoginPageState extends State<LoginPage> {
     if (email == 'daffa@gmail.com' && password == '123456') {
       if (!mounted) return;
 
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const ProfilePage()),
-      );
+      Navigator.pushReplacementNamed(context, '/profile');
     } else {
       if (!mounted) return;
 

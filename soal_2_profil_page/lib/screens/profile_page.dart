@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../models/profile.dart';
 import '../widgets/info_tile.dart';
-import '../screens/edit_profile_page.dart';
-
 import '../widgets/app_drawer.dart';
-import '../screens/about_page.dart';
-import '../screens/login_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -28,11 +24,10 @@ class _ProfilePageState extends State<ProfilePage> {
   );
 
   Future<void> _editProfile() async {
-    final updatedProfile = await Navigator.push<Profile>(
+    final updatedProfile = await Navigator.pushNamed<Profile>(
       context,
-      MaterialPageRoute(
-        builder: (context) => EditProfilePage(profile: mahasiswa),
-      ),
+      '/edit-profile',
+      arguments: mahasiswa,
     );
 
     if (updatedProfile != null) {
@@ -68,20 +63,11 @@ class _ProfilePageState extends State<ProfilePage> {
         onAboutTap: () {
           Navigator.pop(context);
 
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => AboutPage(profile: mahasiswa),
-            ),
-          );
+          Navigator.pushNamed(context, '/about', arguments: mahasiswa);
         },
 
         onLogoutTap: () {
-          Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(builder: (context) => const LoginPage()),
-            (route) => false,
-          );
+          Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
         },
       ),
 

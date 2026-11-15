@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'screens/login_page.dart';
+import 'screens/profile_page.dart';
+import 'screens/edit_profile_page.dart';
+import 'screens/about_page.dart';
+
+import 'models/profile.dart';
 import 'theme_controller.dart';
 
 void main() {
@@ -33,7 +38,35 @@ class MyApp extends StatelessWidget {
 
           themeMode: currentTheme,
 
-          home: const LoginPage(),
+          initialRoute: '/',
+
+          routes: {'/': (context) => const LoginPage()},
+
+          onGenerateRoute: (settings) {
+            switch (settings.name) {
+              case '/profile':
+                return MaterialPageRoute(
+                  builder: (context) => const ProfilePage(),
+                );
+
+              case '/edit-profile':
+                final profile = settings.arguments as Profile;
+
+                return MaterialPageRoute(
+                  builder: (context) => EditProfilePage(profile: profile),
+                );
+
+              case '/about':
+                final profile = settings.arguments as Profile;
+
+                return MaterialPageRoute(
+                  builder: (context) => AboutPage(profile: profile),
+                );
+
+              default:
+                return null;
+            }
+          },
         );
       },
     );
