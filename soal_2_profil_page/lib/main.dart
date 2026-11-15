@@ -20,13 +20,13 @@ class MyApp extends StatelessWidget {
           title: 'Profil Mahasiswa',
 
           theme: ThemeData(
-            colorSchemeSeed: Colors.deepOrange,
+            colorSchemeSeed: Colors.green,
             brightness: Brightness.light,
             useMaterial3: true,
           ),
 
           darkTheme: ThemeData(
-            colorSchemeSeed: Colors.deepOrange,
+            colorSchemeSeed: Colors.green,
             brightness: Brightness.dark,
             useMaterial3: true,
           ),

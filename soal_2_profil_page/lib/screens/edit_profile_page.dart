@@ -27,7 +27,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
   void initState() {
     super.initState();
 
-    // Mengisi form dengan data profil saat ini
     _nameController = TextEditingController(text: widget.profile.name);
     _nimController = TextEditingController(text: widget.profile.nim);
     _prodiController = TextEditingController(text: widget.profile.prodi);
@@ -39,12 +38,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
   }
 
   void _saveProfile() {
-    // Periksa semua validasi form
     if (!_formKey.currentState!.validate()) {
       return;
     }
 
-    // Buat objek Profile dengan data terbaru
     final updatedProfile = Profile(
       name: _nameController.text.trim(),
       nim: _nimController.text.trim(),
@@ -56,7 +53,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
       github: _githubController.text.trim(),
     );
 
-    // Kembalikan data ke halaman sebelumnya
     Navigator.pop(context, updatedProfile);
   }
 

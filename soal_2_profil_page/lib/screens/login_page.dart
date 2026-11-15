@@ -174,16 +174,6 @@ class _LoginPageState extends State<LoginPage> {
                   ),
 
                   const SizedBox(height: 20),
-
-                  Text(
-                    'Demo Account',
-                    style: Theme.of(context).textTheme.titleSmall,
-                  ),
-
-                  const SizedBox(height: 8),
-
-                  const Text('Email: daffa@gmail.com'),
-                  const Text('Password: 123456'),
                 ],
               ),
             ),
