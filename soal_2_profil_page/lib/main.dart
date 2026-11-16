@@ -45,22 +45,25 @@ class MyApp extends StatelessWidget {
           onGenerateRoute: (settings) {
             switch (settings.name) {
               case '/profile':
-                return MaterialPageRoute(
+                return MaterialPageRoute<void>(
                   builder: (context) => const ProfilePage(),
+                  settings: settings,
                 );
 
               case '/edit-profile':
                 final profile = settings.arguments as Profile;
 
-                return MaterialPageRoute(
+                return MaterialPageRoute<Profile>(
                   builder: (context) => EditProfilePage(profile: profile),
+                  settings: settings,
                 );
 
               case '/about':
                 final profile = settings.arguments as Profile;
 
-                return MaterialPageRoute(
+                return MaterialPageRoute<void>(
                   builder: (context) => AboutPage(profile: profile),
+                  settings: settings,
                 );
 
               default:
