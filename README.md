@@ -12,7 +12,7 @@ Aplikasi Profil Mahasiswa merupakan aplikasi mobile berbasis Flutter yang dibuat
 
 ## Video Presentasi
 
-[Link Video YouTube](MASUKKAN_LINK_YOUTUBE_DI_SINI)
+[Link Video YouTube](https://youtu.be/_rOSUDc9c7o?si=c1D_VuT3uYYmu988)
 
 ## Fitur Aplikasi
 
@@ -22,8 +22,7 @@ Aplikasi Profil Mahasiswa merupakan aplikasi mobile berbasis Flutter yang dibuat
 4. **About Me:** Menampilkan keterampilan, hobi, dan riwayat pendidikan.
 5. **Dark Mode:** Mengubah tampilan aplikasi menjadi mode gelap atau terang.
 6. **Navigation Drawer:** Navigasi antarhalaman melalui Drawer.
-7. **Named Routes:** Menggunakan sistem navigasi berdasarkan nama route.
-8. **Logout:** Keluar dari halaman profil dan kembali ke Login.
+7. **Logout:** Keluar dari halaman profil dan kembali ke Login.
 
 ## Teknologi
 
@@ -70,7 +69,7 @@ Pastikan Flutter SDK sudah terpasang.
 1. Clone repository:
 
 ```bash
-git clone URL_REPOSITORY_KAMU
+git clone https://github.com/daffadermawan30/uts-pml-1124160177.git
 ```
 
 2. Masuk ke folder project:
@@ -107,4 +106,4 @@ build/app/outputs/flutter-apk/app-release.apk
 
 ## Download APK
 
-APK versi 1.0.0 tersedia pada bagian [GitHub Releases](https://github.com/daffadermawan30/uts-pml-1124160177/releases/tag/v1.0.0).
+APK versi 1.0.0 tersedia pada bagian [GitHub Releases](https://github.com/daffadermawan30/uts-pml-1124160177/releases/tag/v1.0.1).
